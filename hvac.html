@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HVAC Estimating Form</title>
+</head>
+<body>
+    <h1>HVAC Estimating Form</h1>
+    
+    <form id="hvac-form">
+        <label for="material">Select Material:</label>
+        <select id="material">
+            <option value="Ductwork">Ductwork</option>
+            <option value="Piping">Piping</option>
+            <option value="Equipment">Equipment</option>
+        </select>
+
+        <label for="quantity">Quantity:</label>
+        <input type="number" id="quantity" placeholder="Enter quantity">
+
+        <button type="button" onclick="calculateHVAC()">Calculate Estimate</button>
+    </form>
+
+    <h2 id="result"></h2>
+
+    <button onclick="window.history.back()">Go Back</button>
+
+    <script>
+        function calculateHVAC() {
+            let material = document.getElementById("material").value;
+            let quantity = document.getElementById("quantity").value;
+
+            let costPerUnit = {
+                "Ductwork": 10,
+                "Piping": 15,
+                "Equipment": 100
+            };
+
+            let totalCost = costPerUnit[material] * quantity;
+
+            document.getElementById("result").innerText = 
+                "Total Cost: $" + totalCost.toFixed(2);
+        }
+    </script>
+</body>
+</html>
+

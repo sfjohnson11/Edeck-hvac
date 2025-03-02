@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Electrical Estimating Form</title>
+</head>
+<body>
+    <h1>Electrical Estimating Form</h1>
+
+    <form id="electrical-form">
+        <label for="material">Select Material:</label>
+        <select id="material">
+            <option value="Conduit">Conduit</option>
+            <option value="Wire">Wire</option>
+            <option value="Panels">Panels</option>
+        </select>
+
+        <label for="quantity">Quantity:</label>
+        <input type="number" id="quantity" placeholder="Enter quantity">
+
+        <button type="button" onclick="calculateElectrical()">Calculate Estimate</button>
+    </form>
+
+    <h2 id="result"></h2>
+
+    <button onclick="window.history.back()">Go Back</button>
+
+    <script>
+        function calculateElectrical() {
+            let material = document.getElementById("material").value;
+            let quantity = document.getElementById("quantity").value;
+
+            let costPerUnit = {
+                "Conduit": 5,
+                "Wire": 8,
+                "Panels": 50
+            };
+
+            let totalCost = costPerUnit[material] * quantity;
+
+            document.getElementById("result").innerText = 
+                "Total Cost: $" + totalCost.toFixed(2);
+        }
+    </script>
+</body>
+</html>
+

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plumbing Estimating Form</title>
+</head>
+<body>
+    <h1>Plumbing Estimating Form</h1>
+
+    <form id="plumbing-form">
+        <label for="material">Select Material:</label>
+        <select id="material">
+            <option value="PVC Pipe">PVC Pipe</option>
+            <option value="Copper Pipe">Copper Pipe</option>
+            <option value="Fixtures">Fixtures</option>
+        </select>
+
+        <label for="quantity">Quantity:</label>
+        <input type="number" id="quantity" placeholder="Enter quantity">
+
+        <button type="button" onclick="calculatePlumbing()">Calculate Estimate</button>
+    </form>
+
+    <h2 id="result"></h2>
+
+    <button onclick="window.history.back()">Go Back</button>
+
+    <script>
+        function calculatePlumbing() {
+            let material = document.getElementById("material").value;
+            let quantity = document.getElementById("quantity").value;
+
+            let costPerUnit = {
+                "PVC Pipe": 6,
+                "Copper Pipe": 14,
+                "Fixtures": 80
+            };
+
+            let totalCost = costPerUnit[material] * quantity;
+
+            document.getElementById("result").innerText = 
+                "Total Cost: $" + totalCost.toFixed(2);
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trade Estimating App</title>
+</head>
+<body>
+    <h1>Select Your Estimating Form</h1>
+    
+    <button onclick="window.location.href='hvac.html'">HVAC Estimating</button>
+    <button onclick="window.location.href='electrical.html'">Electrical Estimating</button>
+    <button onclick="window.location.href='framing-drywall.html'">Framing & Drywall Estimating</button>
+    <button onclick="window.location.href='plumbing.html'">Plumbing Estimating</button>
+
+    <script>
+        // Ensure buttons work after deployment
+        document.querySelectorAll("button").forEach(button => {
+            button.addEventListener("click", function() {
+                window.location.href = this.getAttribute("onclick").replace("window.location.href=", "").replace(/['"]/g, "");
+            });
+        });
+    </script>
+</body>
+</html>
